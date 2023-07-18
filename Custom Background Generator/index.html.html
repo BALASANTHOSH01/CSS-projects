@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Customize BackGround Changer</title>
+    <style>
+        *{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#gradient{
+    text-align: center;
+    background: linear-gradient(to right, red,yellow);
+}
+
+h1,h2{
+    text-align: center;
+    color: black;
+    text-shadow: 2px 10px 5px red;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+    </style>
+</head>
+<body id="gradient">
+    <h1>BACKGROUND COLOUR</h1>
+    <h2>Generator</h2>
+    <input class="color1" type="color" name="color1" value="#000000">
+    <input class="color2" type="color" name="color2" value="#ffff00">
+    <h3 class="css"></h3>
+    <script src="event.js"></script>
+</body>
+<script>
+    var css = document.querySelector("h3");
+    var color1 = document.querySelector(".color1");
+    var color2 = document.querySelector(".color2");
+    var body = document.getElementById("gradient");
+    
+    function setGradient() {
+        body.style.background = 
+        "linear-gradient(to right, " 
+        + color1.value 
+        + ", " 
+        + color2.value 
+        + ")";
+    
+        css.textContent = body.style.background + ";";
+    }
+    
+    color1.addEventListener("input", setGradient);
+    
+    color2.addEventListener("input", setGradient);
+    </script>
+</html>
